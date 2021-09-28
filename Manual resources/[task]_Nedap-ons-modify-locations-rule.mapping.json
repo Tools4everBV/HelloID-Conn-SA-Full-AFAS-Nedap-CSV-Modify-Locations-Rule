@@ -1,0 +1,14 @@
+[
+    {
+        "name":  "locationsNew",
+        "value":  "{{form.dualList.right.toJsonString}}"
+    },
+    {
+        "name":  "locationsOriginal",
+        "value":  "{{form.locationMappings.NedapLocationIds}}"
+    },
+    {
+        "name":  "organisationalUnit",
+        "value":  "{{form.locationMappings.AFASOEid}}"
+    }
+]
