@@ -52,10 +52,12 @@ function Get-NedapLocationList {
         $response = Invoke-WebRequest @webRequestSplatting
         $locations = $response.Content | ConvertFrom-Json
         Write-Output  $locations.locations
-    } catch {
+    }
+    catch {
         if ($_.ErrorDetails) {
             $errorReponse = $_.ErrorDetails
-        } elseif ($_.Exception.Response) {
+        }
+        elseif ($_.Exception.Response) {
             $reader = New-Object System.IO.StreamReader($_.Exception.Response.GetResponseStream())
             $errorReponse = $reader.ReadToEnd()
             $reader.Dispose()
@@ -66,8 +68,7 @@ function Get-NedapLocationList {
 Import-NedapCertificate -CertificatePath $script:CertificatePath  -CertificatePassword $script:CertificatePassword
 $locations = Get-NedapLocationList | Where-Object id -in $selectedNedapIds | Select-Object id, name, identificationNo 
 
-ForEach($location in $locations)
-        {
-            $returnObject = @{ Id=$location.id; DisplayName=$location.name; identificatonNo=$location.identificationNo }
-            Write-Output $returnObject                
-        }
+ForEach ($location in $locations) {
+    $returnObject = @{ Id = $location.id; DisplayName = $location.name; identificatonNo = $location.identificationNo }
+    Write-Output $returnObject                
+}
