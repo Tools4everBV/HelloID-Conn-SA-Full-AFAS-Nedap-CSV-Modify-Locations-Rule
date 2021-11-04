@@ -4,7 +4,13 @@ With this HelloID Service Automation Delegated Form you can add mapping rules to
  1. Select the mapping rule
  2. Change the mapped Nedap locations
  3. Confirm the changes
- 
+
+## Versioning
+| Version | Description | Date |
+| - | - | - |
+| 1.0.1   | Added version number and updated all-in-one script | 2021/11/04  |
+| 1.0.0   | Initial release | 2021/09/28  |
+
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 * [Description](#description)
@@ -65,5 +71,8 @@ This Powershell data source retrieves the mapped Nedap ONS locations the configu
 ### Delegated form task '[task]_Nedap-ons-modify-locations-rule'
 This delegated form task will modify the selected rule to the configured mapping file. Effectively it deletes the selected rule and adds a new rule.
 
-# HelloID Docs
+## Getting help
+_If you need help, feel free to ask questions_
+
+## HelloID Docs
 The official HelloID documentation can be found at: https://docs.helloid.com/
