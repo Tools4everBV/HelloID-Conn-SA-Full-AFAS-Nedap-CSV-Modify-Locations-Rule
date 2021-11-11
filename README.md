@@ -72,7 +72,7 @@ This Powershell data source retrieves the mapped Nedap ONS locations the configu
 This delegated form task will modify the selected rule to the configured mapping file. Effectively it deletes the selected rule and adds a new rule.
 
 ## Getting help
-_If you need help, feel free to ask questions_
+If you need help, feel free to ask questions on our [forum](https://forum.helloid.com/forum/helloid-connectors/service-automation/559-helloid-sa-nedap-modify-clientrange-mapping)
 
 ## HelloID Docs
 The official HelloID documentation can be found at: https://docs.helloid.com/
