@@ -11,7 +11,7 @@ function Get-ResponseStream {
         $Exception
     )
     $result = $Exception.Exception.Response.GetResponseStream()
-    $reader = New-Object System.IO.StreamReader($result)
+    $reader = [System.IO.StreamReader]::new($_.Exception.Response.GetResponseStream())
     $responseReader = $reader.ReadToEnd()
     $reader.Dispose()
     Write-Output  $responseReader
@@ -27,7 +27,7 @@ function Import-NedapCertificate {
         $CertificatePassword
     )
 
-    $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
+    $cert = [System.Security.Cryptography.X509Certificates.X509Certificate2]::new()
     $cert.Import($CertificatePath, $CertificatePassword, 'UserKeySet')
     if ($cert.NotAfter -le (Get-Date)) {
         throw "Certificate has expired on $($cert.NotAfter)..."
@@ -58,7 +58,7 @@ function Get-NedapLocationList {
             $errorReponse = $_.ErrorDetails
         }
         elseif ($_.Exception.Response) {
-            $reader = New-Object System.IO.StreamReader($_.Exception.Response.GetResponseStream())
+            $reader = [System.IO.StreamReader]::new($_.Exception.Response.GetResponseStream())
             $errorReponse = $reader.ReadToEnd()
             $reader.Dispose()
         }
